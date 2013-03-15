@@ -32,3 +32,9 @@ Steps to recreate
     For the App URL, enter in your Heroku app's URL and append `/index.json` to the end of it.
 
 6. That's it! Call in, use, and tinker with your app!
+
+Dev Notes
+---------
+* Create tunnel for local development (local sinatra port = 4567), more information available at https://www.tropo.com/docs/webapi/using_tunnlr_reverse_ssh.htm
+  * `ssh  -nNt -g -R :12748:0.0.0.0:4567 tunnlr3492@ssh1.tunnlr.com`
+  * Set tropo endpoint to `http://web1.tunnlr.com:12748/index.json`
