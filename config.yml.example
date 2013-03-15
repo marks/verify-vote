@@ -1,6 +1,6 @@
-eldercare_gov_api:
-  wsdl_url: "http://www.eldercare.gov/Eldercare.NET/WebServices/EldercareData/ec_search.asmx?wsdl"
-  username: "YOUR_USERNAME"
+google_drive:
+  spreadsheet_key: "0AvEbeLXW2uw0dHFmbUU1cHZIWVlzZk1PT2hDNnZWX0E" # from the URL of the spreadsheet
+  login: "YOUR_LOGIN"
   password: "YOUR_PASSWORD"
 tropo_tts:
   voice: "allison"

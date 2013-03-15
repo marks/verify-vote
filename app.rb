@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'bundler'
-require 'open-uri'
 Bundler.require
 
 # Load configuration file with Sintra::Contrib helper (http://www.sinatrarb.com/contrib/)
@@ -8,12 +7,6 @@ config_file 'config.yml'
 
 # Load some helper methods from helpers.rb
 require './helpers.rb'
-
-# set up Savon (SOAP client) configuration
-Savon.configure do |config|
-  config.log = false # disable logging
-end
-HTTPI.log = false # dont log HTTPI messages to console
 
 # To manage the web session coookies
 use Rack::Session::Pool
@@ -23,6 +16,13 @@ G = Gabba::Gabba.new(settings.google_analytics["tracking_id"], settings.google_a
 
 before do
   G.page_view(request.path.to_s,request.path.to_s) if defined?(G)
+end
+
+get '/' do
+  gsession = GoogleDrive.login(settings.google_drive["login"],settings.google_drive["password"])
+  worksheet = gsession.spreadsheet_by_key(settings.google_drive["spreadsheet_key"]).worksheets[0]
+  data = worksheet.list.map {|row| row.to_hash}
+  return data.inspect
 end
 
 # Resource called by the Tropo WebAPI URL setting
