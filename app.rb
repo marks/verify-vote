@@ -102,10 +102,10 @@ post '/process_input.json' do
     G.event("VerifyVote", "LookupByInput", session[:input].to_s) if defined?(G)
 
     if session[:data] # is not null
-      t.say say_str("Here is your ballot record: #{matched_ballot.inspect}")
+      t.say say_str("Your ballot was recorded as follows: box #{matched_ballot["A1"]}")
     else
       # Add a 'say' to the JSON response and hangip the call
-      t.say say_str("Sorry, but we did not find a ballot with your serial number.")
+      t.say say_str("Sorry, but we did not find a ballot with your serial number. Please try again")
     end
 
     t.on  :event => 'continue', :next => '/goodbye.json'
@@ -124,9 +124,9 @@ post '/goodbye.json' do
     t.voice = settings.tropo_tts["voice"]
     puts session.inspect
     if session["channel"] == "VOICE"
-      t.say say_str("Thank you for verifying your vote. This service provided by social health insights dot com,, Have a nice day. Goodbye.")
+      t.say say_str("Thank you for verifying your vote. This service provided by social health insights dot com, idea by Danny Thiemann of eye you,, Have a nice day. Goodbye.")
     else # For text users, we can give them a URL (most clients will make the links clickable)
-      t.say "Thank you for verifying your vote. This service by http://SocialHealthInsights.com"
+      t.say "Thank you for verifying your vote. This service by http://SocialHealthInsights.com; idea by Danny Thiemann of IU"
     end
     t.hangup
 
