@@ -55,7 +55,7 @@ Demonstration
 Steps to recreate
 -----------------
 
-1. You will need to have [Ruby](http://www.ruby-lang.org/en/downloads/), [Rubygems](http://docs.rubygems.org/read/chapter/3), [Heroku](http://docs.heroku.com/heroku-command) and [Git](http://book.git-scm.com/2_installing_git.html) installed first.
+1. You will need to have [the Heroku Toolbelt](https://toolbelt.herokuapp.com/) installed first.
 
 2. Drop into your command line and run the following commands:
   * `git clone http://github.com/marks/verify-vote.git --depth 1`
