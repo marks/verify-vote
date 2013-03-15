@@ -11,7 +11,7 @@ Demonstration
 
 Data Source
 -----------
-
+Publicly accessible Google spreadsheet at [https://docs.google.com/a/gwmail.gwu.edu/spreadsheet/ccc?key=0AvEbeLXW2uw0dHFmbUU1cHZIWVlzZk1PT2hDNnZWX0E#gid=0](https://docs.google.com/a/gwmail.gwu.edu/spreadsheet/ccc?key=0AvEbeLXW2uw0dHFmbUU1cHZIWVlzZk1PT2hDNnZWX0E#gid=0)
 
 Steps to recreate
 -----------------
@@ -20,7 +20,7 @@ Steps to recreate
 
 2. Drop into your command line and run the following commands:
   * `git clone http://github.com/marks/verify-vote.git --depth 1`
-  * `cd tropo-sinatra-eldercare`
+  * `cd verify-vote`
 
 3. Edit the `config.yml.exmaple` to use your own API username and password and rename the file to `config.yml`
 
