@@ -5,13 +5,52 @@ Mock up to verify a voter's ballot choice via SMS
 by [Mark Silverberg](http://twitter.com/skram) of [Social Health Insights](http://socialhealthinsights.com/)
 for Danny Thiemann of the Indiana University Maurer School of Law
 
-Demonstration
--------------
-
-
 Data Source
 -----------
 Publicly accessible Google spreadsheet at [https://docs.google.com/a/gwmail.gwu.edu/spreadsheet/ccc?key=0AvEbeLXW2uw0dHFmbUU1cHZIWVlzZk1PT2hDNnZWX0E#gid=0](https://docs.google.com/a/gwmail.gwu.edu/spreadsheet/ccc?key=0AvEbeLXW2uw0dHFmbUU1cHZIWVlzZk1PT2hDNnZWX0E#gid=0)
+
+
+Demonstration
+-------------
+* You can interact with this app by calling/texting one of the endpoints below.
+<table>
+  <tr>
+    <th>Service</th>
+    <th>Number/Name</th>
+    <th>Voice/Text</th>
+  </tr>
+  <tr>
+    <th>Call/SMS</th>
+    <td>(260) 207-4235</td>
+    <td>Both</td>
+  </tr>
+  <tr>
+    <th>Skype</th>
+    <td>+990009369990065278</td>
+    <td>Voice only</td>
+  </tr>
+  <tr>
+    <th>SIP</th>
+    <td>sip:9990065278@sip.tropo.com</td>
+    <td>Voice only</td>
+  </tr>
+  <tr>
+    <th>iNum</th>
+    <td>+883510001392933</td>
+    <td>Voice only</td>
+  </tr>
+  <tr>
+    <th>Jabber</th>
+    <td>verifyvote@tropo.im</td>
+    <td>Text only</td>
+  </tr>
+</table>
+
+
+* You can also see the data source (details above) by visting one of the following web endpoints in your browser
+  * [/ballots](http://verify-vote.socialhealthinsights.com/ballots) show all ballots in JSON format
+  * [/ballot/321](http://verify-vote.socialhealthinsights.com/ballot/321) show the details for a specific ballot in JSON format
+
 
 Steps to recreate
 -----------------
