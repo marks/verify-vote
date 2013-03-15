@@ -17,6 +17,10 @@ before do
   G.page_view(request.path.to_s,request.path.to_s) if defined?(G)
 end
 
+get '/' do
+  redirect "http://github.com/marks/verify-vote"
+end
+
 get '/ballot/:serial_number' do
   all_ballots = load_spreadsheet_into_hash
   # matched_ballot gets set to the FIRST ballot found with the given serial number
