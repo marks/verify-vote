@@ -65,8 +65,8 @@ post '/index.json' do
       t.ask :name => 'input', :bargein => true, :timeout => settings.tropo_tts["timeout_for_#{session[:channel]}"], :interdigitTimeout => settings.tropo_tts["interdigitTimeout_for_#{session[:channel]}"],
           :attempts => 3,
           :say => [{:event => "timeout", :value => say_str("Sorry, I did not hear anything.")},
-                   {:event => "nomatch:1 nomatch:2 nomatch:3", :value => say_str("Oops, that wasn't a valid ballot number.")},
-                   {:value => say_str("To verify your ballot choice, please enter or say your ballot's serial number followed by the pound key.")}],
+                   {:event => "nomatch:1 nomatch:2 nomatch:3", :value => say_str("Oops, that wasn't a valid labor camp.")},
+                   {:value => say_str("To access labor camp information, please enter the name of the camp followed by the pound key.")}],
                     :choices => { :value => "[1-10 DIGITS]"}
     end
 
@@ -102,10 +102,10 @@ post '/process_input.json' do
     G.event("VerifyVote", "LookupByInput", session[:input].to_s) if defined?(G)
 
     if session[:data] # is not null
-      t.say say_str("Your ballot was recorded as follows: box #{matched_ballot["A1"]}")
+      t.say say_str("Labor Camp History: box #{matched_ballot["A1"]}")
     else
       # Add a 'say' to the JSON response and hangip the call
-      t.say say_str("Sorry, but we did not find a ballot with your serial number. Please try again")
+      t.say say_str("Sorry, but we did not find a labor campy by that name. Please try again")
     end
 
     t.on  :event => 'continue', :next => '/goodbye.json'
@@ -124,9 +124,9 @@ post '/goodbye.json' do
     t.voice = settings.tropo_tts["voice"]
     puts session.inspect
     if session["channel"] == "VOICE"
-      t.say say_str("Thank you for verifying your vote. This service provided by social health insights dot com, idea by Danny Thiemann of eye you,, Have a nice day. Goodbye.")
+      t.say say_str("Thank you. This service provided by social health insights dot com, idea by Danny Thiemann. Have a nice day. Goodbye.")
     else # For text users, we can give them a URL (most clients will make the links clickable)
-      t.say "Thank you for verifying your vote. This service by http://SocialHealthInsights.com; idea by Danny Thiemann of IU"
+      t.say "Thank you. This service by http://SocialHealthInsights.com; idea by Danny Thiemann"
     end
     t.hangup
 
